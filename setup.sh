@@ -85,7 +85,7 @@ wget http://${akbarvpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 # wget https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/ipsaya.sh && chmod +x ipsaya.sh
 #
 # install xray grpc
-wget http://premium.vstunnel.com/main/grpc/sl-grpc.sh && chmod +x sl-grpc.sh && sed -i -e 's/\r$//' sl-grpc.sh && screen -S sl-grpc ./sl-grpc.sh
+wget https://raw.githubusercontent.com/khairunisya/vmess/main/grpc/sl-grpc.sh && chmod +x sl-grpc.sh && sed -i -e 's/\r$//' sl-grpc.sh && screen -S sl-grpc ./sl-grpc.sh
 # install shadowsocks plugin
 #wget http://premium.vstunnel.com/main/shadowsocks/install-ss-plugin.sh && chmod +x install-ss-plugin.sh && ./install-ss-plugin.sh
 #

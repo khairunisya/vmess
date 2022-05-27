@@ -14,16 +14,16 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="premium.vstunnel.com/main/ssh"
+akbarvpn="raw.githubusercontent.com/khairunisya/vmess/main/ssh"
 
 # Link Hosting Kalian Untuk Xray
-akbarvpnn="premium.vstunnel.com/main/xray"
+akbarvpnn="raw.githubusercontent.com/khairunisya/vmess/main/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-akbarvpnnn="premium.vstunnel.com/main/trojango"
+akbarvpnnn="raw.githubusercontent.com/khairunisya/vmess/main/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-akbarvpnnnn="premium.vstunnel.com/main/stunnel5"
+akbarvpnnnn="raw.githubusercontent.com/khairunisya/vmess/main/stunnel5"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -43,7 +43,7 @@ ver=$VERSION_ID
 #email=hayuk69@gmail.com
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "http://${akbarvpn}/password"
+wget -O /etc/pam.d/common-password "https://${akbarvpn}/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -152,13 +152,13 @@ echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
 chown -R www-data:www-data /home/vps/public_html
 chmod -R g+rw /home/vps/public_html
 cd /home/vps/public_html
-wget -O /home/vps/public_html/index.html "http://${akbarvpn}/index.html1"
+wget -O /home/vps/public_html/index.html "https://${akbarvpn}/index.html1"
 /etc/init.d/nginx restart
 cd
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "http://${akbarvpn}/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://${akbarvpn}/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -243,7 +243,7 @@ rm -rf /root/vnstat-2.6
 
 # install stunnel 5 
 cd /root/
-wget -q -O stunnel5.zip "http://${akbarvpnnnn}/stunnel5.zip"
+wget -q -O stunnel5.zip "https://${akbarvpnnnn}/stunnel5.zip"
 unzip -o stunnel5.zip
 cd /root/stunnel
 chmod +x configure
@@ -303,7 +303,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget -q -O /etc/init.d/stunnel5 "http://${akbarvpnnnn}/stunnel5.init"
+wget -q -O /etc/init.d/stunnel5 "https://${akbarvpnnnn}/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel5/stunnel5.pem
@@ -328,7 +328,7 @@ systemctl restart stunnel5
 /etc/init.d/stunnel5 restart
 
 #OpenVPN
-wget http://${akbarvpn}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://${akbarvpn}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -350,7 +350,7 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 #wget https://${akbarvpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # Ganti Banner
-wget -O /etc/issue.net "http://${akbarvpn}/issue.net"
+wget -O /etc/issue.net "https://${akbarvpn}/issue.net"
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -369,71 +369,59 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
-#Download Tambahan
-cd
-wget http://premium.vstunnel.com/trojan.sh
-wget http://premium.vstunnel.com/trgo.sh
-wget http://premium.vstunnel.com/user.sh
-wget http://premium.vstunnel.com/addv2ray.sh
-
-chmod +x trojan.sh
-chmod +x trgo.sh
-chmod +x user.sh
-chmod +x addv2ray.sh
-
 
 # download script
 cd /usr/bin
-wget -O addhost "http://${akbarvpn}/addhost.sh"
-wget -O slhost "http://${akbarvpn}/slhost.sh"
-wget -O about "http://${akbarvpn}/about.sh"
+wget -O addhost "https://${akbarvpn}/addhost.sh"
+wget -O slhost "https://${akbarvpn}/slhost.sh"
+wget -O about "https://${akbarvpn}/about.sh"
 wget -O menu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/menu.sh"
-wget -O addssh "http://${akbarvpn}/addssh.sh"
-wget -O trialssh "http://${akbarvpn}/trialssh.sh"
-wget -O delssh "http://${akbarvpn}/delssh.sh"
-wget -O member "http://${akbarvpn}/member.sh"
-wget -O delexp "http://${akbarvpn}/delexp.sh"
-wget -O cekssh "http://${akbarvpn}/cekssh.sh"
-wget -O restart "http://${akbarvpn}/restart.sh"
-wget -O speedtest "http://${akbarvpn}/speedtest_cli.py"
-wget -O info "http://${akbarvpn}/info.sh"
-wget -O ram "http://${akbarvpn}/ram.sh"
-wget -O renewssh "http://${akbarvpn}/renewssh.sh"
-wget -O autokill "http://${akbarvpn}/autokill.sh"
-wget -O ceklim "http://${akbarvpn}/ceklim.sh"
-wget -O tendang "http://${akbarvpn}/tendang.sh"
-wget -O clearlog "http://${akbarvpn}/clearlog.sh"
-wget -O changeport "http://${akbarvpn}/changeport.sh"
-wget -O portovpn "http://${akbarvpn}/portovpn.sh"
-wget -O portwg "http://${akbarvpn}/portwg.sh"
-wget -O porttrojan "http://${akbarvpn}/porttrojan.sh"
-wget -O portsstp "http://${akbarvpn}/portsstp.sh"
-wget -O portsquid "http://${akbarvpn}/portsquid.sh"
-wget -O portvlm "http://${akbarvpn}/portvlm.sh"
-wget -O wbmn "http://${akbarvpn}/webmin.sh"
-wget -O xp "http://${akbarvpn}/xp.sh"
-wget -O swapkvm "http://${akbarvpn}/swapkvm.sh"
-wget -O addvmess "http://${akbarvpnn}/addv2ray.sh"
-wget -O addvless "http://${akbarvpnn}/addvless.sh"
-wget -O addtrojan "http://${akbarvpnn}/addtrojan.sh"
-wget -O addgrpc "http://${akbarvpnn}/addgrpc.sh"
-wget -O cekgrpc "http://${akbarvpnn}/cekgrpc.sh"
-wget -O delgrpc "http://${akbarvpnn}/delgrpc.sh"
-wget -O renewgrpc "http://${akbarvpnn}/renewgrpc.sh"
-wget -O delvmess "http://${akbarvpnn}/delv2ray.sh"
-wget -O delvless "http://${akbarvpnn}/delvless.sh"
-wget -O deltrojan "http://${akbarvpnn}/deltrojan.sh"
-wget -O cekvmess "http://${akbarvpnn}/cekv2ray.sh"
-wget -O cekvless "http://${akbarvpnn}/cekvless.sh"
-wget -O cektrojan "http://${akbarvpnn}/cektrojan.sh"
-wget -O renewvmess "http://${akbarvpnn}/renewv2ray.sh"
-wget -O renewvless "http://${akbarvpnn}/renewvless.sh"
-wget -O renewtrojan "http://${akbarvpnn}/renewtrojan.sh"
-wget -O certv2ray "http://${akbarvpnn}/certv2ray.sh"
-wget -O addtrgo "http://${akbarvpnnn}/addtrgo.sh"
-wget -O deltrgo "http://${akbarvpnnn}/deltrgo.sh"
-wget -O renewtrgo "http://${akbarvpnnn}/renewtrgo.sh"
-wget -O cektrgo "http://${akbarvpnnn}/cektrgo.sh"
+wget -O addssh "https://${akbarvpn}/addssh.sh"
+wget -O trialssh "https://${akbarvpn}/trialssh.sh"
+wget -O delssh "https://${akbarvpn}/delssh.sh"
+wget -O member "https://${akbarvpn}/member.sh"
+wget -O delexp "https://${akbarvpn}/delexp.sh"
+wget -O cekssh "https://${akbarvpn}/cekssh.sh"
+wget -O restart "https://${akbarvpn}/restart.sh"
+wget -O speedtest "https://${akbarvpn}/speedtest_cli.py"
+wget -O info "https://${akbarvpn}/info.sh"
+wget -O ram "https://${akbarvpn}/ram.sh"
+wget -O renewssh "https://${akbarvpn}/renewssh.sh"
+wget -O autokill "https://${akbarvpn}/autokill.sh"
+wget -O ceklim "https://${akbarvpn}/ceklim.sh"
+wget -O tendang "https://${akbarvpn}/tendang.sh"
+wget -O clearlog "https://${akbarvpn}/clearlog.sh"
+wget -O changeport "https://${akbarvpn}/changeport.sh"
+wget -O portovpn "https://${akbarvpn}/portovpn.sh"
+wget -O portwg "https://${akbarvpn}/portwg.sh"
+wget -O porttrojan "https://${akbarvpn}/porttrojan.sh"
+wget -O portsstp "https://${akbarvpn}/portsstp.sh"
+wget -O portsquid "https://${akbarvpn}/portsquid.sh"
+wget -O portvlm "https://${akbarvpn}/portvlm.sh"
+wget -O wbmn "https://${akbarvpn}/webmin.sh"
+wget -O xp "https://${akbarvpn}/xp.sh"
+wget -O swapkvm "https://${akbarvpn}/swapkvm.sh"
+wget -O addvmess "https://${akbarvpnn}/addv2ray.sh"
+wget -O addvless "https://${akbarvpnn}/addvless.sh"
+wget -O addtrojan "https://${akbarvpnn}/addtrojan.sh"
+wget -O addgrpc "https://${akbarvpnn}/addgrpc.sh"
+wget -O cekgrpc "https://${akbarvpnn}/cekgrpc.sh"
+wget -O delgrpc "https://${akbarvpnn}/delgrpc.sh"
+wget -O renewgrpc "https://${akbarvpnn}/renewgrpc.sh"
+wget -O delvmess "https://${akbarvpnn}/delv2ray.sh"
+wget -O delvless "https://${akbarvpnn}/delvless.sh"
+wget -O deltrojan "https://${akbarvpnn}/deltrojan.sh"
+wget -O cekvmess "https://${akbarvpnn}/cekv2ray.sh"
+wget -O cekvless "https://${akbarvpnn}/cekvless.sh"
+wget -O cektrojan "https://${akbarvpnn}/cektrojan.sh"
+wget -O renewvmess "https://${akbarvpnn}/renewv2ray.sh"
+wget -O renewvless "https://${akbarvpnn}/renewvless.sh"
+wget -O renewtrojan "https://${akbarvpnn}/renewtrojan.sh"
+wget -O certv2ray "https://${akbarvpnn}/certv2ray.sh"
+wget -O addtrgo "https://${akbarvpnnn}/addtrgo.sh"
+wget -O deltrgo "https://${akbarvpnnn}/deltrgo.sh"
+wget -O renewtrgo "https://${akbarvpnnn}/renewtrgo.sh"
+wget -O cektrgo "https://${akbarvpnnn}/cektrgo.sh"
 #wget -O portsshnontls "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshnontls.sh"
 #wget -O portsshws "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshws.sh"
 

@@ -190,7 +190,7 @@ systemctl restart sl-vless-grpc
 cd /usr/bin
 
 
-wget -O sl-addgrpc "http://premium.vstunnel.com/main/grpc/sl-addgrpc.sh"
+wget -O sl-addgrpc "https://raw.githubusercontent.com/khairunisya/vmess/main/grpc/sl-addgrpc.sh"
 chmod +x sl-addgrpc
 chmod +x sl-delgrpc
 chmod +x sl-renewgrpc
