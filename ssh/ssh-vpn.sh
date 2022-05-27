@@ -14,16 +14,16 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/khairunisya/vmess/main/ssh"
+akbarvpn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/ssh"
 
 # Link Hosting Kalian Untuk Xray
-akbarvpnn="raw.githubusercontent.com/khairunisya/vmess/main/xray"
+akbarvpnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-akbarvpnnn="raw.githubusercontent.com/khairunisya/vmess/main/trojango"
+akbarvpnnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-akbarvpnnnn="raw.githubusercontent.com/khairunisya/vmess/main/stunnel5"
+akbarvpnnnn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/stunnel5"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -34,13 +34,13 @@ source /etc/os-release
 ver=$VERSION_ID
 
 #detail nama perusahaan
-#country=ID
-#state=Indonesia
-#locality=Indonesia
-#organization=infinity
-#organizationalunit=infinity
-#commonname=localhost
-#email=hayuk69@gmail.com
+country=ID
+state=Indonesia
+locality=Indonesia
+organization=infinity
+organizationalunit=infinity
+commonname=localhost
+email=hayuk69@gmail.com
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://${akbarvpn}/password"
@@ -191,11 +191,11 @@ cd
 #sed -i $MYIP2 /etc/squid/squid.conf
 
 # Install SSLH
-#apt -y install sslh
-#rm -f /etc/default/sslh
+apt -y install sslh
+rm -f /etc/default/sslh
 
 # Settings SSLH
-#cat > /etc/default/sslh <<-END
+cat > /etc/default/sslh <<-END
 # Default options for sslh initscript
 # sourced by /etc/init.d/sslh
 
@@ -207,22 +207,22 @@ cd
 # Once configuration ready, you *must* set RUN to yes here
 # and try to start sslh (standalone mode only)
 
-#RUN=yes
+RUN=yes
 
 # binary to use: forked (sslh) or single-thread (sslh-select) version
 # systemd users: don't forget to modify /lib/systemd/system/sslh.service
-#DAEMON=/usr/sbin/sslh
+DAEMON=/usr/sbin/sslh
 
-#DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:777 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh.pid -n"
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:777 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh.pid -n"
 
-#END
+END
 
 # Restart Service SSLH
-#service sslh restart
-#systemctl restart sslh
-#/etc/init.d/sslh restart
-#/etc/init.d/sslh status
-#/etc/init.d/sslh restart
+service sslh restart
+systemctl restart sslh
+/etc/init.d/sslh restart
+/etc/init.d/sslh status
+/etc/init.d/sslh restart
 
 # setting vnstat
 apt -y install vnstat
@@ -271,7 +271,7 @@ connect = 127.0.0.1:109
 
 [openssh]
 accept = 777
-connect = 127.0.0.1:5443
+connect = 127.0.0.1:443
 
 [openvpn]
 accept = 990
@@ -291,7 +291,7 @@ cat > /etc/systemd/system/stunnel5.service << END
 [Unit]
 Description=Stunnel5 Service
 Documentation=https://stunnel.org
-Documentation=https://www.jrtunnel.com
+Documentation=https://github.com/Akbar218
 After=syslog.target network-online.target
 
 [Service]
@@ -369,7 +369,6 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
-
 # download script
 cd /usr/bin
 wget -O addhost "https://${akbarvpn}/addhost.sh"
@@ -422,8 +421,8 @@ wget -O addtrgo "https://${akbarvpnnn}/addtrgo.sh"
 wget -O deltrgo "https://${akbarvpnnn}/deltrgo.sh"
 wget -O renewtrgo "https://${akbarvpnnn}/renewtrgo.sh"
 wget -O cektrgo "https://${akbarvpnnn}/cektrgo.sh"
-#wget -O portsshnontls "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshnontls.sh"
-#wget -O portsshws "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshws.sh"
+wget -O portsshnontls "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshnontls.sh"
+wget -O portsshws "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshws.sh"
 
 wget -O ipsaya "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/ipsaya.sh"
 wget -O sshovpnmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/sshovpn.sh"
@@ -466,8 +465,8 @@ chmod +x running
 chmod +x updatemenu
 
 
-#chmod +x portsshnontls
-#chmod +x portsshws
+chmod +x portsshnontls
+chmod +x portsshws
 
 chmod +x slhost
 chmod +x addhost
@@ -546,7 +545,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 /etc/init.d/fail2ban restart
-#/etc/init.d/sslh restart
+/etc/init.d/sslh restart
 /etc/init.d/stunnel5 restart
 /etc/init.d/vnstat restart
 /etc/init.d/fail2ban restart
