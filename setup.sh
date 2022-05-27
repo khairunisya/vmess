@@ -52,12 +52,20 @@ exit 0
 fi
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
+#Download Trojan VPN
+wget http://premium.vstunnel.com/main/trojan.sh && chmod +x trojan.sh
+#Download Trojan Go
+wget http://premium.vstunnel.com/main/trgo.sh && chmod +x trgo.sh
+#Download WG
+wget http://premium.vstunnel.com/main/user.sh && chmod +x user.sh
+#Download Add Vmess
+wget http://premium.vstunnel.com/main/addv2ray.sh && chmod +x addv2ray.sh
 #install Domain
 wget http://${akbarvpn}/slhost.sh && chmod +x slhost.sh && ./slhost.sh
 #install xray
 wget http://${akbarvpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
 #install ssh ovpn
-wget http://${akbarvpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/khairunisya/mantap/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 #wget http://${akbarvpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 #install ssr
 #wget http://${akbarvpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
@@ -110,8 +118,6 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget -O /etc/set.sh "http://${akbarvpn}/set.sh"
-chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
 echo " "
