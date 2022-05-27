@@ -19,25 +19,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-akbarvpn="premium.vstunnel.com/main/ssh"
+akbarvpn="raw.githubusercontent.com/khairunisya/vmess/main/ssh"
 # Link Hosting Kalian Untuk Sstp
-akbarvpnn="premium.vstunnel.com/main/sstp"
+akbarvpnn="raw.githubusercontent.com/khairunisya/vmess/main/sstp"
 # Link Hosting Kalian Untuk Ssr
-akbarvpnnn="premium.vstunnel.com/main/ssr"
+akbarvpnnn="raw.githubusercontent.com/khairunisya/vmess/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-akbarvpnnnn="premium.vstunnel.com/main/shadowsocks"
+akbarvpnnnn="raw.githubusercontent.com/khairunisya/vmess/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-akbarvpnnnnn="premium.vstunnel.com/main/wireguard"
+akbarvpnnnnn="raw.githubusercontent.com/khairunisya/vmess/main/wireguard"
 # Link Hosting Kalian Untuk Xray
-akbarvpnnnnnn="premium.vstunnel.com/main/xray"
+akbarvpnnnnnn="raw.githubusercontent.com/khairunisya/vmess/main/xray"
 # Link Hosting Kalian Untuk Ipsec
-akbarvpnnnnnnn="premium.vstunnel.com/main/ipsec"
+akbarvpnnnnnnn="raw.githubusercontent.com/khairunisya/vmess/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-akbarvpnnnnnnnn="premium.vstunnel.com/main/backup"
+akbarvpnnnnnnnn="raw.githubusercontent.com/khairunisya/vmess/main/backup"
 # Link Hosting Kalian Untuk Websocket
-akbarvpnnnnnnnnn="premium.vstunnel.com/main/websocket"
+akbarvpnnnnnnnnn="raw.githubusercontent.com/khairunisya/vmess/main/websocket"
 # Link Hosting Kalian Untuk Ohp
-akbarvpnnnnnnnnnn="premium.vstunnel.com/main/ohp"
+akbarvpnnnnnnnnnn="raw.githubusercontent.com/khairunisya/vmess/main/ohp"
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
@@ -53,13 +53,13 @@ fi
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 #Download Trojan VPN
-wget http://premium.vstunnel.com/main/trojan.sh && chmod +x trojan.sh
+wget https://raw.githubusercontent.com/khairunisya/vmess/main/trojan.sh && chmod +x trojan.sh
 #Download Trojan Go
-wget http://premium.vstunnel.com/main/trgo.sh && chmod +x trgo.sh
+wget https://raw.githubusercontent.com/khairunisya/vmess/main/trgo.sh && chmod +x trgo.sh
 #Download WG
-wget http://premium.vstunnel.com/main/user.sh && chmod +x user.sh
+wget https://raw.githubusercontent.com/khairunisya/vmess/main/user.sh && chmod +x user.sh
 #Download Add Vmess
-wget http://premium.vstunnel.com/main/addv2ray.sh && chmod +x addv2ray.sh
+wget https://raw.githubusercontent.com/khairunisya/vmess/main/addv2ray.sh && chmod +x addv2ray.sh
 #install Domain
 wget http://${akbarvpn}/slhost.sh && chmod +x slhost.sh && ./slhost.sh
 #install xray
